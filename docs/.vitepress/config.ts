@@ -10,6 +10,7 @@ export default defineConfig({
   description: '知识分享库',
   lang: 'zh-CN',
   cleanUrls: 'with-subfolders',
+  ignoreDeadLinks: true,
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],
