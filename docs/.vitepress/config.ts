@@ -15,6 +15,8 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+
+
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: ogTitle }],
     ['meta', { property: 'og:image', content: ogImage }],
@@ -105,6 +107,14 @@ function sidebarBlender() {
         { text: '服务器云渲染', link: '/guide/blender/advanced/cloud-render' },
         { text: '提取守望先锋资产', link: '/guide/blender/advanced/extract-overwatch-assets' },
       ]
+    },
+    {
+      text: '🎮三角洲行动',
+      collapsible: true,
+      items: [
+        { text: 'NinjaRipper 提取枪械', link: '/guide/blender/delta-force/ninjaripper-extract-weapon' },
+        { text: '数据结构', link: '/guide/blender/delta-force/data-structure' },
+      ]
     }
   ]
 }
@@ -186,3 +196,4 @@ function sidebarSFM() {
     }
   ]
 }
+

@@ -1,8 +1,16 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "types": ["vite/client"],
-      "resolveJsonModule": true
-    },
-    "include": ["**/.vitepress/**/*"],
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "vite/client"
+    ],
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2015",
+      "DOM"
+    ]
+  },
+  "include": [
+    "**/.vitepress/**/*"
+  ],
+}
