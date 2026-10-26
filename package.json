@@ -1,7 +1,8 @@
 {
+  "packageManager": "bun@1.4.4",
   "devDependencies": {
     "vitepress": "1.6.4",
-    "vue": "^3.5.28"
+    "vue": "^3.5.44"
   },
   "type": "module",
   "scripts": {
@@ -10,8 +11,8 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "medium-zoom": "^1.1.0",
-    "sass": "^1.97.3",
-    "@videojs/html": "^10.2.0"
+    "@videojs/html": "^10.2.0",
+    "medium-zoom": "^1.1.1",
+    "sass": "^1.106.1"
   }
 }

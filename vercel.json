@@ -1,4 +1,7 @@
 {
+    "installCommand": "bun install --frozen-lockfile",
+    "buildCommand": "bun run build",
+    "outputDirectory": "docs/.vitepress/dist",
     "headers": [
       {
         "source": "/assets/(.*)",
