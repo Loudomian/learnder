@@ -3,14 +3,15 @@ layout: home
 
 title: Learnder
 titleTemplate: 知识分享库
+description: Learnder 是一个公益、开源的 3D 创作学习文档，提供 Blender 与 Source Filmmaker 的入门、进阶与实战教程。
 
 hero:
   name: Learnder
-  tagline: 一个朴实无华的3D制作流程学习文档。
-  text: Simple and uncomplicated note
+  text: 3D 创作学习笔记
+  tagline: 一个朴实无华的 3D 制作流程学习文档，涵盖 Blender 与 Source Filmmaker。
   image:
     src: /logo-hero.png
-    alt: Learnder
+    alt: Learnder 标志
   actions:
     - theme: brand
       text: 查阅 Blender 文档
@@ -25,15 +26,20 @@ hero:
 features:
   - icon: 🍃
     title: 简洁至上
-    details: 以 Markdown 为中心的项目结构，简练的文字描述操作
+    details: 以 Markdown 编写，用简练的文字和截图讲清每一步操作。
   - icon: 📚
     title: 要点丰富
-    details: 以笔者自身的经验为基础，填补缺失的奇技淫巧
+    details: 以贡献者的实践经验为基础，补充教程里常见的遗漏与技巧。
   - icon: 🐳
-    title: 开放式
-    details: 开放式的文档，任何人都可以在线阅读和编辑并提交
+    title: 开放共建
+    details: 文档开源，任何人都可以在线阅读、编辑并提交改进。
   - icon: 🍱
     title: 社区支持
-    details: 提供社区支持，欢迎提出意见和建议，我们将立即回复
-
+    details: 遇到问题可以在社区提问，也欢迎把你的经验写成新的文档。
 ---
+
+## 从哪里开始？
+
+- **第一次接触 3D**：从 [Blender 引言](/guide/blender/intro) 开始，了解 Blender 能做什么、适合谁学。
+- **想用 SFM 做海报**：先读 [SFM 引言](/guide/sfm/intro)，再跟着 [海报实例](/guide/sfm/instance/monika-poster/intro) 完整做一遍。
+- **想完善这份文档**：阅读 [文档编写指南](/contributing)，按模板提交你的第一篇教程。

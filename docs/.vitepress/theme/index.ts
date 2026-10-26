@@ -1,19 +1,16 @@
 import DefaultTheme from 'vitepress/theme'
-import VideoPlayer from './VideoPlayer'
 import Layout from './Layout.vue'
 import { Theme } from 'vitepress'
-import DeltaForceData from '../../components/DeltaForceData.vue'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
+import VideoPlayer from './VideoPlayer'
 
 export default {
   ...DefaultTheme,
 
   Layout,
   enhanceApp({ app }) {
-    app.component('DeltaForceData', DeltaForceData)
     app.component('VideoPlayer', VideoPlayer)
-
     if (typeof document !== 'undefined') {
       const removeReducedMotionRules = () => {
         for (let i = 0; i < document.styleSheets.length; i++) {

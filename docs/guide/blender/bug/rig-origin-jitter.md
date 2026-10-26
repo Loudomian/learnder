@@ -37,6 +37,8 @@ lang: zh-CN
 
 下方从左至右依次为原点基准、姿态总控移动至 10,000 米、骨架对象整体移动至 10,000 米。三组使用相同动作；物体模式组的姿态总控仅作小幅移动。该 Rig 在物体模式下整体移动后，误差有所减小，但仍未消除。
 
+该角色的面部由独立骨架控制，并通过父子级骨骼约束跟随主骨架运动。额外的约束计算可能进一步累积浮点误差，使面部在远离原点时出现抖动。
+
 <VideoPlayer
   loop
   src="https://cdn.learnder.org/docs/2026/10/%E5%AF%B9%E6%AF%94%E6%B8%B2%E6%9F%93_10000m_a4921.mp4"
@@ -49,7 +51,5 @@ lang: zh-CN
 ## 原因
 
 Blender 的变换计算采用有限精度浮点数。坐标绝对值增大时，可表示数值之间的间隔也随之增大。网格经过骨架、矩阵、IK 与约束等多级运算后，舍入误差可能累积，并使动画求值结果出现差异，最终表现为局部抖动或形变。
-
-本次测试的角色还使用了一套独立的面部骨架，通过父子级骨骼约束跟随主骨架运动。面部变形因此需要经过额外的骨架与约束计算，大坐标下的舍入误差可能在这一过程中进一步累积，表现为面部局部抖动。
 
 参考：[Blender 手册：限制](https://docs.blender.org/manual/en/4.5/advanced/limits.html)、[Blender 动画模块项目说明](https://developer.blender.org/docs/features/animation/module/projects/)、[远离原点时 Rig 变形案例](https://blenderartists.org/t/distorted-and-wobbly-rigged-mesh-when-positioned-far-away-from-original-location-world-origin/1472946)。

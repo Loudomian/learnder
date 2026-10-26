@@ -1,3 +1,8 @@
+---
+title: 获取社区资产
+description: 从 Steam 创意工坊与 SFMLab 获取 SFM 模型、地图、音效等社区资产。
+---
+
 # 获取社区资产
 
 ::: tip 打个广告

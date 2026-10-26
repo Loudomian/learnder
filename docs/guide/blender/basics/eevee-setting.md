@@ -1,17 +1,28 @@
 ---
-title: EEVEE 设定
+title: EEVEE 渲染器简介
+description: 了解 EEVEE 实时渲染器的工作原理、相对 Cycles 的局限与适用场景。
 lang: zh-CN
 ---
 
-# {{ $frontmatter.title }}
+# EEVEE 渲染器简介
 
-EEVEE 是一个实时渲染引擎，虽然 EEVEE 使用和 Cycles 一样的着色器节点，但与 Cycles 不同的是，EEVEE 基于光栅化的多种算法来估算光线和物体材质，并不像 Cycles 基于物理光线追踪来计算每个光线的反弹。
+EEVEE 是 Blender 的实时渲染引擎。它和 Cycles 使用同一套着色器节点，但渲染方式不同：EEVEE 基于光栅化算法估算光线与材质，Cycles 则基于物理光线追踪计算每条光线的反弹。
 
-EEVEE 相比于 Cycles 有很多的弊端，包括但不限于：
+## EEVEE 的局限
 
-- 显存管理由显卡驱动完成，庞大的场景不适合 EEVEE 进行，因为显卡驱动会一直交换资产，以保证所有需要渲染的物体正确渲染，显存溢出会导致驱动崩溃、程序冻结乃至闪退。
-- 不支持多个显卡交火，即不支持多显卡渲染。
-- 基于光栅化，没有计划设计给 CPU 使用，CPU 渲染效率低下。
-- 活动光源，光照探头，着色器节点皆有限制。
+相比 Cycles，EEVEE 有不少限制，包括但不限于：
 
-更多弊端请参考 [Limitations - Blender Manual](https://docs.blender.org/manual/en/3.3/render/eevee/limitations.html)。
+- **显存管理由显卡驱动完成**。庞大场景不适合 EEVEE，因为驱动会不断交换资产以保证所有物体正确渲染；显存溢出会导致驱动崩溃、程序冻结甚至闪退。
+- **不支持多显卡交火**，也就是不能用多张显卡一起渲染。
+- **基于光栅化**，并非为 CPU 渲染设计，CPU 渲染效率很低。
+- **活动光源、光照探头、着色器节点都有限制**。
+
+更多限制请参考 [Limitations - Blender Manual](https://docs.blender.org/manual/en/3.3/render/eevee/limitations.html)。
+
+## 什么时候用 EEVEE
+
+- 需要快速预览材质与灯光效果时。
+- 场景规模不大、显存充足时。
+- 对物理准确度要求不高、更看重迭代速度时。
+
+如果需要更准确的光照与反射，请改用 Cycles；如果要把渲染交给服务器，可以参考 [服务器云渲染](/guide/blender/advanced/cloud-render)。

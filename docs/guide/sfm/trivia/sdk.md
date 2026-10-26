@@ -1,3 +1,8 @@
+---
+title: Source SDK
+description: 认识 Source SDK 的工具组成，并通过搜索路径添加自定义模型仓库。
+---
+
 # Source SDK
 
 SDK 全称 Software Development Kit ，中文为 软件开发工具包，Source Filmmaker 也包含了其专属的 SDK，以确保软件本体有适合的模型与地图。
@@ -36,7 +41,7 @@ SDK 全称 Software Development Kit ，中文为 软件开发工具包，Source 
 | ----------------------------- | ------------ |
 | Rest Game Configurations      | 重置游戏配置 |
 | Delete Game Configurations    | 删除游戏配置 |
-| Remove  Environment Variables | 环境变量     |
+| Remove Environment Variables  | 环境变量     |
     
 #### Mod（模组）
 

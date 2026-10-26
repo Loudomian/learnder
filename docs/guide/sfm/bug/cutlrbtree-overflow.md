@@ -1,3 +1,8 @@
+---
+title: CUtlRBTree overflow
+description: 解决 SFM 载入模型时出现 CUtlRBTree overflow 的仓库容量问题。
+---
+
 # CUtlRBTree overflow
 
 当你载入模型或在使用过程中出现 **Engine Error** > **CUtlRBTree overflow**
@@ -14,3 +19,5 @@
 
 - [what the hell is a "CUtlRBTree overflow"](https://steamcommunity.com/app/1840/discussions/0/618459405709574793/)（Steam 社区）
 - ["CUtIRBTree overflow!" Crashes](https://steamcommunity.com/app/1840/discussions/0/611696927915836470/)（Steam社区）
+
+:::

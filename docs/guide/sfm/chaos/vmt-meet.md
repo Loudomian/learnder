@@ -1,4 +1,9 @@
-# 初识vmt
+---
+title: 初识 VMT
+description: 从零认识 VMT 材质文件：结构、常用指令与在 SFM 中的加载方式。
+---
+
+# 初识 VMT
 
 ::: info 关于本文
 
@@ -8,7 +13,7 @@
 
 :::
 
-## vmt 是什么
+## VMT 是什么
 
 - 起源引擎不直接使用 Textures（**纹理贴图，以下简称纹理**）。一切都通过 Materials（**材质**）进行着色。
 
@@ -134,18 +139,9 @@ VertexLitGeneric
 ![](https://img-blog.csdnimg.cn/20200317202911480.jpg)
 
 假设已经有了一张 mask 贴图了，他的二级参数怎么写呢：
-    
 ```
-VertexLitGeneric 
-{ 
-    $phong  1
-    
-    $bumpmap 				[ texture ] 
-    $phongexponent 			5 
-    $phongexponenttexture 			[ texture ] 	
-    $phongboost 				1.0 
-    $phongfresnelranges 			“ [0 0.5 1]” 
-}
+VertexLitGeneric{    $phong  1
+    $bumpmap 				[ texture ]    $phongexponent 			5    $phongexponenttexture 			[ texture ]    $phongboost 				1.0    $phongfresnelranges 			“ [0 0.5 1]”}
 ```
 
 这都啥意思？你直接列代码我不懂啊！
@@ -159,14 +155,14 @@ VertexLitGeneric
 | 二级参数（蒙版）           | 功能                                                                                                           | 值格式   |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------- | -------- |
 | $bumpmap                  | 带alpha通道一个的凹凸贴图充当默认的Phong蒙版贴图                                                               | 贴图路径 |
-| $basemapalphaphongmask     | 使用$ basetexture的Alpha通道                                                                                   | bool     |
+| $basemapalphaphongmask     | 使用$basetexture的Alpha通道                                                                                   | bool     |
 | $basemapluminancephongmask | 基于$basetexture亮度的蒙版phong作用强度                                                                        | bool     |
 | $phongexponent             | 全局指数值，整体亮度                                                                                           | 整数     |
 | $phongexponenttexture      | 使用指数图                                                                                                     | 贴图路径 |
 | $phongexponentfactor       | 将指数纹理乘以该数量（2013版本引擎）                                                                           | 整数     |
 | $invertphongmask           | 反转遮罩的值                                                                                                   | bool     |
 | $forcephong                | 即使在GPU级别较低的情况下，也可以在phong材料上强制phong着色。这要求将convar mat_phong设置为1，否则它将不起作用 | bool     |
-| $diffuseexp                | 这与$ phongexponent，$ phongexponenttexture有关                                                                | 浮点     |
+| $diffuseexp                | 这与$phongexponent，$phongexponenttexture有关                                                                | 浮点     |
 | $shinyblood                | 仅在《 Left 4 Dead》系列中使用                                                                                 | 整数     |
 | $shinybloodexponent        | 仅在《 Left 4 Dead》系列中使用                                                                                 | 整数     |
 
@@ -178,7 +174,7 @@ VertexLitGeneric
 
 | 二级参数（色彩）  | 功能                                                                               | 值格式   |
 | ----------------- | ---------------------------------------------------------------------------------- | -------- |
-| $phongalbedotint  | 允许$ basetexture着色Phong高光的颜色。着色量由$ phongexponenttexture的绿色通道定义 |          |
+| $phongalbedotint  | 允许$basetexture着色Phong高光的颜色。着色量由$phongexponenttexture的绿色通道定义 |          |
 | $phongalbedoboost | Phong反照率过亮系数。范围0-255 （Counter-Strike）                                  | 浮点     |
 | $phongtint        | 峰反射的反照率色彩。（基于其他通道）                                               | RGB数组  |
 | $phongwarptexture | 用于创建虹彩效果（《半条命2：新作》第二集2007年）                                  | 贴图路径 |
@@ -203,18 +199,17 @@ VertexLitGeneric
 ---
 
 `$phongexponenttexture`
-这个用到的是指数图，就是一种主色调是绿色的贴图，里面稍微带一点红色，这个是调整法线贴图效果的。在指数图中：**红色通道-指数蒙版**（蒙版作用强度大小，0-255，其中值0是最大作用，255是无作用），**绿色通道-对比度遮罩**（同时受$ phongalbedotint参数影响 范围0-255，值为0时无色，255时全色），蓝色通道-无 ，**Alpha通道**： $ rimlight遮罩（仅当$ rimmask 1时启用）
+这个用到的是指数图，就是一种主色调是绿色的贴图，里面稍微带一点红色，这个是调整法线贴图效果的。在指数图中：**红色通道-指数蒙版**（蒙版作用强度大小，0-255，其中值0是最大作用，255是无作用），**绿色通道-对比度遮罩**（同时受$phongalbedotint参数影响 范围0-255，值为0时无色，255时全色），蓝色通道-无 ，**Alpha通道**： $rimlight遮罩（仅当$rimmask 1时启用）
 
 ---
 
 `$phongboost`
-反射的亮度信息（**跟$ phongexponent不一样啊**），之前我做了一个光剑模型，还不知道自发光函数，只能依靠这个函数来提高我的光剑亮度，那么这个效果同样来自于反射光，比如我给这个函数赋值为10.0，那么当光照射到这个模型上时，这个模型将反射出巨亮的光。相反给一个极低的值，比如0.1，这个模型即使光照过去也显得非常暗淡。
+反射的亮度信息（**跟$phongexponent不一样啊**），之前我做了一个光剑模型，还不知道自发光函数，只能依靠这个函数来提高我的光剑亮度，那么这个效果同样来自于反射光，比如我给这个函数赋值为10.0，那么当光照射到这个模型上时，这个模型将反射出巨亮的光。相反给一个极低的值，比如0.1，这个模型即使光照过去也显得非常暗淡。
 
 ---
 
 `$phongfresnelranges`
-做mmd风格的人物模型的必备参数，先解释一下啥是菲涅尔效果，在VMT中，Frensel术语使用以下格式定义。**X表示视角等于表面法线时**表面的反射性。**Z表示视角等于掠射角时**的反射率。**Y代表这两者之间**的反射率。 
-
+做mmd风格的人物模型的必备参数，先解释一下啥是菲涅尔效果，在VMT中，Fresnel术语使用以下格式定义。**X表示视角等于表面法线时**表面的反射性。**Z表示视角等于掠射角时**的反射率。**Y代表这两者之间**的反射率。
 ![](https://img-blog.csdnimg.cn/20200317204548905.jpg)
 
 ---
@@ -275,12 +270,12 @@ VertexLitGeneric
 
 #### 例子
 
-    $ envmap env_cubemap
+    $envmap env_cubemap
 
 
 > 通常使用“ env_cubemap”，因为它告诉VBSP在env_cubemap编译地图时交换最近的名称。但是，也可以使用手动创建的静态立方体贴图图像。
 
-> **注意：如果$ envmap在不指定$ basetexture的情况下使用，则无论如何都将强制绘制镜面反射。**
+> **注意：如果$envmap在不指定$basetexture的情况下使用，则无论如何都将强制绘制镜面反射。**
 > （引用自valve论坛[$envmap](https://developer.valvesoftware.com/wiki/$envmap)词条）
 
 这段话的大致意思是如果指定的是env_cubemap则将把当前载入的地图的hdr图像作为模型的envmap，当然也可以自己指定自制或者已存在的贴图的路径。
@@ -324,9 +319,9 @@ VertexLitGeneric
 | $envmapcontrast         | 控制反射的对比度。0是自然对比度，而1是颜色的全平方（即颜色*颜色）（*启用Phong时将不起作用。提示：使用较高的对比度可以减少相对较暗的区域并增加“热点”*）                                          | 0-1浮点     |
 | $envmapsaturation       | 控制反射的颜色饱和度。0是灰度，而1是自然饱和度。（*在模型上启用Phong时将不起作用。*）                                                                                                           | 0-1浮点     |
 | $envmapframe            | 用于启动动画立方体贴图的框架。                                                                                                                                                                  | 整数        |
-| $basetexturenoenvmap    | 用于具有两个反照率的材料，以使一个或另一个哑光。（请参阅$ basetexture和$ basetexture2）                                                                                                         | bool        |
+| $basetexturenoenvmap    | 用于具有两个反照率的材料，以使一个或另一个哑光。（请参阅$basetexture和$basetexture2）                                                                                                         | bool        |
 | $envmapoptional         | 设置应该绘制反射的兼容的DirectX版本                                                                                                                                                             | 80/81/90/95 |
-| $envmapfresnel          | 在反射中 添加菲涅耳效果。0是无，而1则是完全效果，类似于Water。效果乘以大于1的值。（此函数用于VertexLitGeneric着色器，另外LightmappedGeneric和WorldVertexTransition需要使用$ fresnelreflection） | bool        |
+| $envmapfresnel          | 在反射中 添加菲涅耳效果。0是无，而1则是完全效果，类似于Water。效果乘以大于1的值。（此函数用于VertexLitGeneric着色器，另外LightmappedGeneric和WorldVertexTransition需要使用$fresnelreflection） | bool        |
 | $envmapfresnelminmaxexp | 为设置菲涅耳效果的范围VertexLitGeneric。默认情况下"[0 1 2]"，使面向观察者的表面反射性小于面向侧面的表面。（第一个值是菲涅耳的最小量，第二个值是菲涅耳的最大值，最后一个值是指数。）             | 三元数组    |
 | 控制台命令              | --                                                                                                                                                                                              | --          |
 | mat_specular            | 禁用或启用镜面反射。默认值1。                                                                                                                                                                   | --          |
@@ -334,7 +329,7 @@ VertexLitGeneric
 
 > （省略了6个仅用于csgo的参数和2个07年淘汰的参数）
 
-### 四、酱糊基础贴图的救星：细节贴图$ detail
+### 四、酱糊基础贴图的救星：细节贴图$detail
 当基础贴图分辨率不太高而模型贼大，把贴图拉的糊成一片的时候，细节贴图就能发挥作用了，相当于一个正片叠底的PS图层啦，在原有的贴图上叠加一层贴图，可大可小，可调整透明度等等参数，当然也可以用于衣服的纹理细节上面（如果用凹凸贴图表现衣服纹理的话必须开启照明光才能看出来，细节贴图就算不开光照也可以看出来）
 
 ![](https://img-blog.csdnimg.cn/20200317204757196.jpg)
@@ -349,19 +344,14 @@ VertexLitGeneric
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | $detailtexturetransform | 旋转，缩放等细节纹理。                                                                                                                            | 字符串/数组 |
 | $detailscale            | 以给定的次数将细节纹理拟合到材质上（默认= 4）。通常用于代替$detailtexturetransform128px细节纹理的7或8左右的值。                                   | 浮点        |
-| $detailblendfactor      | 控制细节纹理影响基础纹理的量。精确的使用取决于混合因子。在大多数情况下，它的行为类似于$ alpha。值0通常会使细节纹理不起作用，而值1则应用全部效果。 | 0-1浮点     |
+| $detailblendfactor      | 控制细节纹理影响基础纹理的量。精确的使用取决于混合因子。在大多数情况下，它的行为类似于$alpha。值0通常会使细节纹理不起作用，而值1则应用全部效果。 | 0-1浮点     |
 | $detailblendmode        | 如何将细节材料与反照率结合在一起                                                                                                                  | 方法序号    |
 | $detailtint             | 修改细节纹理的颜色。                                                                                                                              | RGB数组     |
 | $detailframe            | 启用动态细节纹理                                                                                                                                  | 整数        |
 
 #### 例子：
-    
-    $ detail "detail\metal_detail_01" 
-    $ detailtexturetransform "center .5 .5 scale 1 1 rotate 0 translate 0 0"
-    $ detailscale 4.283 
-    $ detailblendfactor .65 
-    $ detailblendmode 0
-    
+    $detail "detail\metal_detail_01"    $detailtexturetransform "center .5 .5 scale 1 1 rotate 0 translate 0 0"
+    $detailscale 4.283    $detailblendfactor .65    $detailblendmode 0
 详细说几个参数：
 ##### 1.$detailtexturetransform:
 默认位置是"center .5 .5 scale 1 1 rotate 0 translate 0 0"。
@@ -373,24 +363,24 @@ VertexLitGeneric
 ##### 2.$detailblendmode:
 可以使用12种不同的细节混合方法。
 0 =贴图调制此功能与DecalModulate着色器相同-低于128的颜色会使图像变暗，高于128的颜色会使图像变亮。
-1 =添加剂细节纹理的颜色将添加到基础纹理中。这与$ additive相同。
+1 =添加剂细节纹理的颜色将添加到基础纹理中。这与$additive相同。
 2 =半透明的细节细节纹理将作为半透明覆盖层应用到基础纹理的顶部。
 3 =混合因子淡入度细节纹理作为半透明覆盖层应用，但忽略其alpha通道。取而代之的是，使用混合因子来确定从底部显示多少基本纹理。
 4 =半透明底这有效地翻转了两个纹理的正常分层。细节纹理显示在“下方”，基本的Alpha通道将其控制为半透明的覆盖层。细节Alpha通道控制总体材质Alpha-用于半透明，遮罩或其他用途。
 5 =未点燃的添加剂细节纹理的颜色与模式1相同地添加到基本纹理，但是此颜色不受光照的影响，因此看起来会发光。
 6 =未点燃附加阈值淡入这将添加不受模式5照明影响的颜色，但首先会根据混合因子是高于还是低于0.5来修改以两种模式添加的颜色。方法： 屏幕截图。
 7 =两模式DecalModulate仅使用细节纹理的红色和Alpha通道。该操作类似于DecalModulate着色器或混合模式0，但是基本的Alpha通道在使用红色（0）或Alpha（255）细节通道作为调制源之间逐渐减弱。有效地允许使用两个细节材料，尽管它们都是灰度的。
-8 =乘基本通道的颜色乘以细节纹理的颜色。 错误： 由于缺少着色器组合，因此与$ phong不兼容。
+8 =乘基本通道的颜色乘以细节纹理的颜色。 错误： 由于缺少着色器组合，因此与$phong不兼容。
 9 =通过局部Alpha的基本蒙版仅使用细节Alpha通道。它与基本纹理的Alpha通道相乘以生成最终的Alpha值。
-10 =自阴影凹凸贴图细节纹理用作（可能是附加的）$ ssbump凹凸贴图。混合因子将被忽略。注意：您可以使用它在同一材质上获得标准凹凸贴图和自阴影凹凸贴图。但是，这很昂贵，应该非常谨慎地使用。
+10 =自阴影凹凸贴图细节纹理用作（可能是附加的）$ssbump凹凸贴图。混合因子将被忽略。注意：您可以使用它在同一材质上获得标准凹凸贴图和自阴影凹凸贴图。但是，这很昂贵，应该非常谨慎地使用。
 11 = SSBump反照率未知功能，内部使用。评论说：“着色器在这里发挥了魔力-无需用户指定模式11”。
 12+其他任何值都将禁用细节效果。
 
 > 一般用0模式即可，默认也是0
 
 
-### 五、灯泡和屏幕：自发光参数$ selfillum
-自发光确定表面在何处进行自发光，而与环境照明无关。这种类型的遮罩可以使表面的像素充满来自颜色纹理的着色。（*不能与$ translucent（半透明）或$ alphatest（alpha遮罩）同时使用。*）
+### 五、灯泡和屏幕：自发光参数$selfillum
+自发光确定表面在何处进行自发光，而与环境照明无关。这种类型的遮罩可以使表面的像素充满来自颜色纹理的着色。（*不能与$translucent（半透明）或$alphatest（alpha遮罩）同时使用。*）
 
 #### 二级参数：
 |                             |                                                                                                                                     |          |
@@ -398,9 +388,9 @@ VertexLitGeneric
 | $selfillumtint              | 调整自发光效果的颜色。默认值为“ [1 1 1]”。                                                                                          | RGB数组  |
 | $selfillummaskscale         | 缩放自发光效果强度。默认值为1.0。                                                                                                   | 0-1浮点  |
 | $selfillummask              | 效果专用的蒙版纹理。（光源遮罩）                                                                                                    | 纹理路径 |
-| $selfillum_envmapmask_alpha | 使材料从的Alpha通道派生其自发光蒙版$ envmapmask 。注意：$ selfillum_envmapmask_alpha替换原始$ selfillum命令，因此它们不能一起使用。 | bool     |
+| $selfillum_envmapmask_alpha | 使材料从的Alpha通道派生其自发光蒙版$envmapmask 。注意：$selfillum_envmapmask_alpha替换原始$selfillum命令，因此它们不能一起使用。 | bool     |
 | $selfillumtexture           | 使用selfillum纹理。从Source 2007开始不推荐使用。                                                                                    | 纹理路径 |
-| $selfIllumFresnel           | 允许材料使用菲涅耳范围。如果启用则中断。$ envmap $ normalmapalphaenvmapmask                                                         | bool     |
+| $selfIllumFresnel           | 允许材料使用菲涅耳范围。如果启用则中断。$envmap $normalmapalphaenvmapmask                                                         | bool     |
 | $selfIllumFresnelMinMaxExp  | 默认值：[0.0 1.0 1.0] 菲涅耳范围与$phongfresnelranges类似。第一个值是最小照度，第二个值是最大照度，最后一个值是菲涅耳指数。         | 浮点数组 |
 
 #### 例子：
@@ -414,24 +404,24 @@ VertexLitGeneric
 
 
 ### 其他参数
-#### 1.$ alpha 、$ translucent 、$ alphatest
+#### 1.$alpha 、$translucent 、$alphatest
 这三个函数都是透明函数
-1. $ alpha：这个函数取值0-1的浮点数，是启用alpha通道的程度，比如basetexture有透明通道，那么我要把这个alpha开到1才能完全出现透明情况，如果是0则不透明，如果是0.5的话就是半透明，其他数值亦然。
-2. $ alphatest：这个有点不好解释，取值是0或1，大概意思是透用某一个alpha程度的通道。
-3. $ translucent：这个就是透明混合函数了，把纹理的透明和部分和不透明部分搞一个渐变，属于比较高级的操作把，总感觉用处不太大。
+1. $alpha：这个函数取值0-1的浮点数，是启用alpha通道的程度，比如basetexture有透明通道，那么我要把这个alpha开到1才能完全出现透明情况，如果是0则不透明，如果是0.5的话就是半透明，其他数值亦然。
+2. $alphatest：这个有点不好解释，取值是0或1，大概意思是透用某一个alpha程度的通道。
+3. $translucent：这个就是透明混合函数了，把纹理的透明和部分和不透明部分搞一个渐变，属于比较高级的操作把，总感觉用处不太大。
 
-#### 2.$ nocull
+#### 2.$nocull
 这个函数是无视法线的函数，模型它有法线，法线射出面就是外表面，另外那面就是内表面，其中外表面可以漫反射，就是可以显示，内表面看不到，用透明代替，这个函数作用是把两面都变成外表面，都可以显示。
 **这个函数用于打开的衣服、一个面的敞开物（例如单面杯子）、一张画、纸币、一个面的头发等。**
-#### 3.$ surfaceprop
+#### 3.$surfaceprop
 这个是用于游戏的物理属性函数，其中包含碰撞时发出什么声音、射击表面会发出什么效果、质量、浮力、弹力、表面对附近声音（混响，回声，吸收...）的影响。
 值有liquid、solid、wall等
 *这个函数在SFM里不必要。*
 
-#### 4.$ halflambert
+#### 4.$halflambert
 它是一个布尔参数，用于启用半朗伯照明，该照明将照明进一步围绕模型以防止其丢失定义。
 它仅适用于模型。
-*注意：从Source 2007开始，VertexLitGeneric无论启用什么$ halflambert设置，$ phong都将强制启用半朗伯照明，除非启用了$ phongDisableHalfLambert*
+*注意：从Source 2007开始，VertexLitGeneric无论启用什么$halflambert设置，$phong都将强制启用半朗伯照明，除非启用了$phongDisableHalfLambert*
 
 
 ### 完整的vmt实例

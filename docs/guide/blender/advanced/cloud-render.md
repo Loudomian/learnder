@@ -1,9 +1,14 @@
 ---
 title: 服务器云渲染
+description: 在 Linux GPU 服务器上使用 Blender 命令行进行云渲染的完整配置与操作指南。
 lang: zh-CN
 ---
 
 # {{ $frontmatter.title }}
+
+::: warning 时效性提示
+本文写于 2022 年，平台的价格、免费额度和界面可能已经变化。操作思路仍可参考，具体以平台当前文档为准。
+:::
 
 为什么要云渲染？
 
@@ -132,7 +137,7 @@ mv blender-3.3.1-linux-x64 blender
 ![](https://pic1.imgdb.cn/item/634ac05616f2c2beb1c7fce9.jpg)
 
 
-上传你已经 [打包](https://docs.blender.org/manual/zh-hans/dev/files/blend/packed_data.html) 好或资产已经就绪的 Blender 工程，如果你的工程文件大于或等于 150MB，你需要上传到第三方允许直链的平台，比如任意对象存储、[钛盘](https://tmp.link/)、[Catbox](catbox.moe) 等。
+上传你已经 [打包](https://docs.blender.org/manual/zh-hans/dev/files/blend/packed_data.html) 好或资产已经就绪的 Blender 工程，如果你的工程文件大于或等于 150MB，你需要上传到第三方允许直链的平台，比如任意对象存储、[钛盘](https://tmp.link/)、[Catbox](https://catbox.moe/) 等。
 
 #### 渲染项目
 

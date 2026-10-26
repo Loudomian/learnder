@@ -1,61 +1,103 @@
 /**
- * Colors: Brand (红色主题)
+ * Colors: Brand (珊瑚红主题)
  * --------------------------------------------------------------------------
- * 参考 VitePress 官方 vars.css 规范：
- * - brand-1: 最深/浅色，用于文字，需要在 soft 背景上有对比度
- * - brand-2: 中间色，用于悬浮状态
- * - brand-3: 按钮背景色，需要与白色文字有对比度
+ * 遵循 VitePress 官方 vars.css 的颜色层级约定：
+ * - brand-1: 文字/链接，需要在 soft 背景上保持对比度
+ * - brand-2: 悬浮文字
+ * - brand-3: 实心背景（按钮），需要与白色文字保持 4.5:1
  * - brand-soft: 半透明背景色
+ * - brand-accent: 仅用于渐变、描边等装饰，不承载正文
  */
 
 :root {
-  /** 红色调色板 - 浅色模式 **/
-  --vp-c-red-1: #c84545;
-  --vp-c-red-2: #e85555;
-  --vp-c-red-3: #ff6666;
-  --vp-c-red-soft: rgba(255, 102, 102, 0.14);
+  /** 品牌色阶（浅色模式） */
+  --vp-c-brand-1: #b03c3c;
+  --vp-c-brand-2: #bd4141;
+  --vp-c-brand-3: #c84545;
+  --vp-c-brand-soft: rgba(176, 60, 60, 0.12);
 
-  /** VitePress 标准品牌色变量 **/
-  --vp-c-brand-1: var(--vp-c-red-1);
-  --vp-c-brand-2: var(--vp-c-red-2);
-  --vp-c-brand-3: var(--vp-c-red-3);
-  --vp-c-brand-soft: var(--vp-c-red-soft);
+  /** 装饰用亮珊瑚色 */
+  --vp-c-brand-accent: #ff6666;
+  --vp-c-brand-shadow: rgba(200, 69, 69, 0.16);
 
   /** 向后兼容的品牌色别名 (DEPRECATED) **/
   --vp-c-brand: var(--vp-c-brand-1);
 
-  /** 语义化颜色 - Tip/Note 使用品牌色 **/
-  --vp-c-tip-1: var(--vp-c-brand-1);
-  --vp-c-tip-2: var(--vp-c-brand-2);
-  --vp-c-tip-3: var(--vp-c-brand-3);
-  --vp-c-tip-soft: var(--vp-c-brand-soft);
+  /** 浅色模式衍生色 */
+  --vp-c-brand-light: #d96a6a;
+  --vp-c-brand-lighter: #e88a8a;
+  --vp-c-brand-lightest: #f2aaa6;
+  --vp-c-brand-dark: #9c3434;
+  --vp-c-brand-darker: #8a2f2f;
 
-  /** 自定义扩展品牌色（用于特殊需求）**/
-  --vp-c-brand-light: #ff827e;
-  --vp-c-brand-lighter: #ff9d96;
-  --vp-c-brand-lightest: #ffb6b0;
-  --vp-c-brand-dark: #d05655;
-  --vp-c-brand-darker: #a34544;
+  /** Tip 使用青绿色，与品牌珊瑚红、Danger 深红区分 */
+  --vp-c-tip-1: #0f766e;
+  --vp-c-tip-2: #0d6b63;
+  --vp-c-tip-3: #0b5f59;
+  --vp-c-tip-soft: rgba(15, 118, 110, 0.1);
+
+  /** Danger 使用独立的深红，避免与品牌珊瑚红混淆 */
+  --vp-c-danger-1: #8f2f2f;
+  --vp-c-danger-2: #a13636;
+  --vp-c-danger-3: #b23d3d;
+  --vp-c-danger-soft: rgba(143, 47, 47, 0.14);
+
+  /** Caution 使用橙色，和 Danger 区分 */
+  --vp-c-caution-1: #9a4224;
+  --vp-c-caution-2: #b95a00;
+  --vp-c-caution-3: #c16200;
+  --vp-c-caution-soft: rgba(249, 115, 22, 0.14);
 }
 
 .dark {
-  /** 红色调色板 - 暗色模式 **/
-  --vp-c-red-1: #ff9d96;
-  --vp-c-red-2: #ff827e;
-  --vp-c-red-3: #ff6666;
-  --vp-c-red-soft: rgba(255, 157, 150, 0.16);
+  /** 品牌色阶（暗色模式） */
+  --vp-c-brand-1: #ff9d96;
+  --vp-c-brand-2: #ffb3ad;
+  --vp-c-brand-3: #b03c3c;
+  --vp-c-brand-soft: rgba(255, 157, 150, 0.16);
 
-  /** VitePress 标准品牌色变量 **/
-  --vp-c-brand-1: var(--vp-c-red-1);
-  --vp-c-brand-2: var(--vp-c-red-2);
-  --vp-c-brand-3: var(--vp-c-red-3);
-  --vp-c-brand-soft: var(--vp-c-red-soft);
+  --vp-c-brand-accent: #ff6666;
+  --vp-c-brand-shadow: rgba(255, 157, 150, 0.14);
 
-  /** 语义化颜色 **/
-  --vp-c-tip-1: var(--vp-c-brand-1);
-  --vp-c-tip-2: var(--vp-c-brand-2);
-  --vp-c-tip-3: var(--vp-c-brand-3);
-  --vp-c-tip-soft: var(--vp-c-brand-soft);
+  --vp-c-brand: var(--vp-c-brand-1);
+
+  --vp-c-brand-light: #ffb3ad;
+  --vp-c-brand-lighter: #ffc4bf;
+  --vp-c-brand-lightest: #ffd6d2;
+  --vp-c-brand-dark: #a34544;
+  --vp-c-brand-darker: #8a3838;
+
+  --vp-c-tip-1: #5eead4;
+  --vp-c-tip-2: #99f6e4;
+  --vp-c-tip-3: #0f766e;
+  --vp-c-tip-soft: rgba(45, 212, 191, 0.14);
+
+  --vp-c-danger-1: #ff7b72;
+  --vp-c-danger-2: #ff9a90;
+  --vp-c-danger-3: #c84545;
+  --vp-c-danger-soft: rgba(255, 123, 114, 0.16);
+
+  --vp-c-caution-1: #fb8c00;
+  --vp-c-caution-2: #e46a02;
+  --vp-c-caution-3: #b45309;
+  --vp-c-caution-soft: rgba(249, 115, 22, 0.16);
+}
+
+/**
+ * Typography: 中文/日文/韩文断行
+ * -------------------------------------------------------------------------- */
+
+[lang]:where(:lang(zh), :lang(ja), :lang(ko)) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  p {
+    line-break: strict;
+  }
 }
 
 /**
@@ -81,7 +123,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-c-border: #c2c2c4;
+  --vp-c-border: #cfc7bc;
   --vp-c-divider: #e8e0d8;
   --vp-c-gutter: #e8e0d8;
 }
@@ -99,7 +141,7 @@
 :root {
   --vp-c-text-1: #3d3530;
   --vp-c-text-2: #6b6056;
-  --vp-c-text-3: #9a8d80;
+  --vp-c-text-3: #75685d;
 }
 
 .dark {
@@ -114,7 +156,7 @@
 
 :root {
   --vp-code-color: var(--vp-c-brand-1);
-  --vp-code-bg: var(--vp-c-brand-soft);
+  --vp-code-bg: var(--vp-c-default-soft);
   --vp-code-block-bg: var(--vp-c-bg-alt);
 }
 
@@ -138,7 +180,22 @@
   --vp-button-alt-bg: var(--vp-c-bg-soft);
   --vp-button-alt-hover-border: transparent;
   --vp-button-alt-hover-text: var(--vp-c-text-1);
-  --vp-button-alt-hover-bg: var(--vp-c-bg-alt);
+  --vp-button-alt-hover-bg: #e9e3da;
+  --vp-button-alt-active-border: transparent;
+  --vp-button-alt-active-text: var(--vp-c-text-1);
+  --vp-button-alt-active-bg: #e3dbd1;
+}
+
+/** 暗色模式按钮单独定义，保证白字对比度 */
+.dark {
+  --vp-button-brand-bg: #c84545;
+  --vp-button-brand-hover-bg: #bd4141;
+  --vp-button-brand-active-bg: #b03c3c;
+
+  /** 次要按钮的 hover 不能沿用浅色模式的米色底 */
+  --vp-button-alt-bg: #1c1d23;
+  --vp-button-alt-hover-bg: rgba(255, 157, 150, 0.12);
+  --vp-button-alt-active-bg: rgba(255, 157, 150, 0.18);
 }
 
 /**
@@ -154,7 +211,7 @@
   --vp-custom-block-info-bg: var(--vp-c-default-soft);
   --vp-custom-block-info-code-bg: var(--vp-c-default-soft);
 
-  /** Tip custom-block - 使用品牌色 **/
+  /** Tip custom-block - 使用青绿色 **/
   --vp-custom-block-tip-border: transparent;
   --vp-custom-block-tip-text: var(--vp-c-text-1);
   --vp-custom-block-tip-bg: var(--vp-c-tip-soft);
@@ -167,6 +224,31 @@
   /** Info custom-block - 暗色模式使用 #1a1b21 **/
   --vp-custom-block-info-bg: #1a1b21;
   --vp-custom-block-info-code-bg: #1a1b21;
+}
+
+/** 提示块左侧色条：颜色之外再提供一层形状区分 */
+.custom-block.tip,
+.custom-block.warning,
+.custom-block.danger,
+.custom-block.caution {
+  border-left-width: 3px;
+}
+
+.custom-block.tip {
+  border-left-color: var(--vp-c-tip-1);
+}
+
+.custom-block.warning {
+  border-left-color: var(--vp-c-warning-1);
+}
+
+.custom-block.danger {
+  border-left-width: 4px;
+  border-left-color: var(--vp-c-danger-1);
+}
+
+.custom-block.caution {
+  border-left-color: var(--vp-c-caution-1);
 }
 
 /**
@@ -184,8 +266,8 @@
 
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, var(--vp-c-brand-1) 30%, var(--vp-c-brand-3));
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, var(--vp-c-brand-1) 50%, var(--vp-c-brand-3) 50%);
+  --vp-home-hero-name-background: linear-gradient(120deg, var(--vp-c-brand-1) 30%, var(--vp-c-brand-accent));
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, var(--vp-c-brand-1) 50%, var(--vp-c-brand-accent) 50%);
   --vp-home-hero-image-filter: blur(40px);
 }
 
@@ -459,7 +541,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #535664;
+  background-color: #c8beb3;
   border-radius: 2px;
 }
 
@@ -604,7 +686,7 @@ video {
   &:hover {
     transform: translateY(-4px);
     border-color: var(--vp-c-brand-light);
-    box-shadow: 0 8px 24px rgba(255, 102, 102, 0.12);
+    box-shadow: 0 8px 24px var(--vp-c-brand-shadow);
   }
 }
 
@@ -614,7 +696,7 @@ video {
 
   &:hover {
     border-color: var(--vp-c-brand);
-    box-shadow: 0 8px 24px rgba(255, 102, 102, 0.15);
+    box-shadow: 0 8px 24px var(--vp-c-brand-shadow);
   }
 }
 

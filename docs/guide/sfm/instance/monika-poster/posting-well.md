@@ -1,4 +1,9 @@
-# 摆好动作
+---
+title: 海报实例：摆好动作
+description: 海报实例的动作摆放：利用 Rig 与曲线编辑器摆出自然姿势。
+---
+
+# 海报实例：摆好动作
 
 ![](https://pic.downk.cc/item/5ec12004c2a9a83be552534d.png)
 

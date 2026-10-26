@@ -1,4 +1,9 @@
-# 自发光 vmt
+---
+title: 自发光 VMT
+description: 通过自发光 VMT 参数让 SFM 材质在暗处发光。
+---
+
+# 自发光 VMT
 
 ::: info 关于本文
 
@@ -25,7 +30,7 @@
 自发光参数：
 
 ```
-$ selfillum <bool>
+$selfillum <bool>
 ```
 
 起源的自发光引擎更合适的叫法应该是 “无明暗” （blender里的无明暗）：无视任何光线效果，包括 hdr地图光，也包括灯光 Light，最终的效果是强制着色为贴图原本的颜色，就是在 Vtfedit 或者 Photoshop 里看到的效果，是什么颜色就显示什么颜色，所以基本上没啥用，我确实想不到禁用光照有什么用处？
@@ -97,7 +102,7 @@ $detail "cold\white" //texture
 这个参数的效果是将 Detail 贴图的比例跟 Basetexture 的贴图比例同化，也就是说如果两张贴图像素大小相同的话就可以把 Detail 的贴图对齐UV，（这里说这个的原因是因为，Detail 函数本身用于细节，会把贴图平铺在模型表面，所以加上这个参数就可以对齐UV了）
 
 最后说的是最简单的$detail，后面跟的就是贴图路径了。
-在 Detialblendmode 为5的情况下黑色会自动无视，白色变为发光部分。
+在 Detailblendmode 为5的情况下黑色会自动无视，白色变为发光部分。
 
 
 那看一下效果：
@@ -132,7 +137,7 @@ $detail "cold\white" //texture
   "$bumpmap" "cold\WoodLight\pic1_n"
   //冯氏高光
   $phong 1
-  $basemapalphaphongmask//使用$ basetexture的Alpha通道，可以同步透明部分？
+  $basemapalphaphongmask//使用$basetexture的Alpha通道，可以同步透明部分？
   $phongexponent "10"//硬度-int
   $phongboost "2"//亮度-float-0-1
   $phongalbedotint "1"//允许高光贴图有颜色属性附到反照率

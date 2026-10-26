@@ -1,5 +1,6 @@
 ---
 title: Blender 视频教程推荐
+description: 精选适合初学者的 Blender 视频教程，附作者、关键词与观看地址。
 lang: zh-CN
 ---
 

@@ -1,3 +1,8 @@
+---
+title: 让模型富有光泽
+description: 通过 $phongboost 与 $phongexponent 材质参数，让 SFM 模型呈现汗湿、反光的效果。
+---
+
 # 让模型富有光泽
 
 这个操作会让你的模型具有汗、反光的效果。

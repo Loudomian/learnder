@@ -1,8 +1,13 @@
+---
+title: 环境错误
+description: 移动 SFM 安装目录后出现环境错误的修复方法：修改用户环境变量。
+---
+
 # 环境错误
 
 ![](https://img.imgdb.cn/item/6028c17fd2a061fec7ca632d.jpg)
 
-将 SourceFilmmaker 移动到另一个分区后，启动 SourceFilmmaker 会出现 **环境错误** 的提示。简单的来说，你软件是放在C盘的，现在被你放到了D盘。
+将 Source Filmmaker 移动到另一个分区后，启动 Source Filmmaker 会出现 **环境错误** 的提示。简单来说，你的软件原本放在 C 盘，现在被移动到了 D 盘。
 
 不幸的是，即使你通过简单的卸载重装，这个问题也无法被自动解决。所以我们强烈建议**不要移动软件本体** 以防止出现此次错误。
 
@@ -27,7 +32,7 @@
 - VProject
 - VTools
 
-如果没有，请通过 `新建...`创建它们，并将值设定为目前 SourceFilmmaker的安装路径，如：
+如果没有，请通过 `新建...` 创建它们，并将值设定为目前 Source Filmmaker 的安装路径，如：
 
 ![](https://img.imgdb.cn/item/6028c00ed2a061fec7c9a4dc.jpg)
 

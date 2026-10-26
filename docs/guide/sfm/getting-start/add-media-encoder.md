@@ -1,3 +1,8 @@
+---
+title: 增加视频编码器
+description: 为 SFM 安装 QuickTime 编码器以输出更多视频格式，并说明为什么不推荐直接导出 MP4。
+---
+
 # 增加视频编码器
 
 ## 使用 QuickTime

@@ -1,6 +1,11 @@
+---
+title: Auto Rigger（自动装配）
+description: 使用 Auto Rigger 脚本为 SFM 模型快速生成 IK Rig，包含面板参数说明与常见问题。
+---
+
 # Auto Rigger（自动装配）
 
-**AutoRigger** ，自动装配 IK，实际上并不是自动的（ 仍然需要你进行一些细微调整。Auto Rigger 是一个非常方便的 IK RIG 自制脚本，如果你不知道什么是 IK RIG 请点击 [这里](/guide/sfm/basics/rig.md#ik-rig-反向动力骨架)。
+**AutoRigger** 是一个自动装配 IK 的脚本。它并不是完全自动的，仍然需要你进行一些细微调整。Auto Rigger 是一个非常方便的 IK Rig 自制脚本，如果你不知道什么是 IK Rig，请先阅读 [Rig（骨架）](/guide/sfm/basics/rig)。
 
 十分推荐新手使用这个脚本以提高制作速度。
 
@@ -124,7 +129,7 @@
 ---
 
 - Q：粉色的骨骼太多了怎么办？
-- A：点击 Unkown 栏目前的三角隐藏未知骨骼
+- A：点击 Unknown 栏目前的三角隐藏未知骨骼
 
 ![](https://ae01.alicdn.com/kf/HTB18dpudRCw3KVjSZR0762cUpXat.png)
 

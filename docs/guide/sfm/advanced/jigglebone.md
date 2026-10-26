@@ -1,3 +1,8 @@
+---
+title: JiggleBone（动骨）
+description: 关闭程序化骨骼，手动控制 SFM 模型中的 JiggleBone（动骨）。
+---
+
 # JiggleBone（动骨）
 
 **JiggleBone**，中文可译为**动骨**承担着模拟物理的效果。

@@ -1,3 +1,8 @@
+---
+title: 文档损坏
+description: SFM 工程文件损坏后的现状与预防建议：定期备份，谨慎操作。
+---
+
 # 文档损坏
 
 ![](https://img.imgdb.cn/item/6028c14dd2a061fec7ca4972.jpg)
