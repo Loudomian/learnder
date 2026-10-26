@@ -12,6 +12,16 @@ export default defineConfig({
   cleanUrls: 'with-subfolders',
   ignoreDeadLinks: true,
 
+  vite: {
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['video-player', 'video-neutral-skin'].includes(tag)
+        }
+      }
+    }
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi' }],
@@ -107,6 +117,13 @@ function sidebarBlender() {
       items: [
         { text: '服务器云渲染', link: '/guide/blender/advanced/cloud-render' },
         { text: '提取守望先锋资产', link: '/guide/blender/advanced/extract-overwatch-assets' },
+      ]
+    },
+    {
+      text: '🛠️排错',
+      collapsible: true,
+      items: [
+        { text: '角色远离原点后出现抖动', link: '/guide/blender/bug/rig-origin-jitter' },
       ]
     },
     {

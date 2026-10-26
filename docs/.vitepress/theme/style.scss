@@ -708,3 +708,40 @@ video {
     transform: translateY(0);
   }
 }
+:root {
+  --learnder-video-accent: #c84545;
+}
+
+.vp-doc .learnder-video {
+  margin: 1.5rem 0 2rem;
+}
+
+.vp-doc .learnder-video__title {
+  margin-bottom: 0.65rem;
+  color: var(--vp-c-text-1);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.vp-doc video-neutral-skin {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: #121317;
+  --media-accent-color: var(--learnder-video-accent);
+  --media-accent-text-color: #fff;
+}
+
+.vp-doc .learnder-video__media {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #121317;
+}
